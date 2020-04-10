@@ -16,29 +16,29 @@ const webeditkit = require("webeditkit");
 $('document').ready(function(){
     webeditkit.setup();
 
-    registerRenderer('com.strumenta.businessorg.Organization', (node)=>{
-        return verticalGroupCell(
-            row(fixedCell(node, 'Organization'), editableCell(node, 'name')),
+    registerRenderer('com.strumenta.businessorg.Organization', (node) => {
+       return verticalGroupCell(
+            row(fixedCell(node, 'Organization', ['title']), editableCell(node, 'name', ['title'])),
             emptyRow(),
-            row(fixedCell(node, 'roles:')),
+            row(fixedCell(node, 'Roles:')),
             row(tabCell(), verticalCollectionCell(node, 'roles')),
             emptyRow(),
-            row(fixedCell(node, 'persons:')),
+            row(fixedCell(node, 'Persons:')),
             row(tabCell(), verticalCollectionCell(node, 'persons')),
-        );
+       );
     });
 
-    registerRenderer('com.strumenta.businessorg.Role', (node)=>{
+    registerRenderer('com.strumenta.businessorg.Role', (node) => {
         return editableCell(node, 'name');
     });
 
-    registerRenderer('com.strumenta.businessorg.Person', (node)=>{
+    registerRenderer('com.strumenta.businessorg.Person', (node) => {
         return row(editableCell(node, 'name'), fixedCell(node, ":"), horizontalCollectionCell(node, 'roles', () => {
-            fixedCell(node, ",");
+            return fixedCell(node, ",");
         }));
     });
 
-    registerRenderer('com.strumenta.businessorg.RolePlayed', (node)=>{
+    registerRenderer('com.strumenta.businessorg.RolePlayed', (node) => {
         return referenceCell(node, 'role');
     });
 
