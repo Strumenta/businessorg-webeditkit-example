@@ -1,0 +1,18 @@
+@import url("node_modules/webeditkit/css/style.css");
+
+html {
+    font-family: monospace;
+}
+
+#businessorg {
+    border: 1px;
+    -webkit-box-shadow: 6px 7px 20px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 6px 7px 20px 0px rgba(0,0,0,0.75);
+    box-shadow: 6px 7px 20px 0px rgba(0,0,0,0.75);
+    border-radius: 10px;
+    padding: 10px;
+}
+
+/*#businessorg input.fixed {*/
+/*    font-weight: bold;*/
+/*}*/
